@@ -10,7 +10,7 @@ $ pip install requirements.txt
 ```
 
 ### MagNet
-The structure of MagNet was used from [here](https://github.com/ZhengPeng7/motion_magnification_learning-based). Please download the pretrained weight from their release and place in `dataloader/weight/`.
+The structure of MagNet was adapted from [here](https://github.com/ZhengPeng7/motion_magnification_learning-based). Please download the pretrained weight from their release and place in `dataloader/weight/`.
 
 ### DLIB with GPU (not necessary)
 ```command
