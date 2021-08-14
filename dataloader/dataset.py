@@ -6,8 +6,8 @@ import cv2
 import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
-from magnet import MagNet
-from landmarks import detect_landmarks
+from dataloader.magnet import MagNet
+from dataloader.landmarks import detect_landmarks
 
 
 def center_crop(img: np.array, crop_size: Union[tuple, int]) -> np.array:

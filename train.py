@@ -6,7 +6,7 @@ from sklearn.metrics import f1_score
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from dataloader import (
+from dataloader.dataloader import (
     get_loader,
     LOSO_sequence_generate
 )
