@@ -6,11 +6,11 @@ from sklearn.metrics import f1_score
 import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
-from dataloader.dataloader import (
+from read_file import read_csv
+from dataloader import (
     get_loader,
     LOSO_sequence_generate
 )
-from read_file import read_csv
 from models.FMER import FMER
 
 
@@ -203,7 +203,7 @@ if __name__ == "__main__":
                         help="Epochs for training the model")
     parser.add_argument("--learning_rate",
                         type=float,
-                        default=3e-4,
+                        default=1e-4,
                         help="Learning rate for training the model")
     args = parser.parse_args()
 

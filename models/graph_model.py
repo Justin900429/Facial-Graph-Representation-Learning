@@ -1,6 +1,6 @@
 import torch
 import torch.nn as nn
-from transformer_encoder import TransformerEncoder
+from .transformer_encoder import TransformerEncoder
 
 
 class ConvBlock(nn.Module):
