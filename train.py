@@ -7,12 +7,11 @@ import torch
 import torch.nn as nn
 from torch.utils.data import DataLoader
 from dataloader import (
-    MEDataset,
     get_loader,
     LOSO_sequence_generate
 )
 from read_file import read_csv
-from FMER import FMER
+from models.FMER import FMER
 
 
 def train(epochs: int, criterion: nn.Module, optimizer: torch.optim,

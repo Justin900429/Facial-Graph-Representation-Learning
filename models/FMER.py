@@ -1,8 +1,8 @@
 import torch
 import torch.nn as nn
-from graph_model import GraphLearningModel
-from au_gcn import GCN
-from au_fusion import AUFusion
+from models.graph_model import GraphLearningModel
+from models.au_gcn import GCN
+from models.au_fusion import AUFusion
 
 
 class FMER(nn.Module):
