@@ -6,8 +6,8 @@ import cv2
 import torch
 from torch.utils.data import Dataset
 from torchvision import transforms
-from dataloader.magnet import MagNet
-from dataloader.landmarks import detect_landmarks
+from magnet import MagNet
+from landmarks import detect_landmarks
 
 
 def center_crop(img: np.array, crop_size: Union[tuple, int]) -> np.array:
@@ -48,22 +48,30 @@ def unit_preprocessing(unit):
 
 
 def magnify_postprocessing(unit):
+    # Unnormalized the magnify images
     unit = unit[0].permute(1, 2, 0).contiguous()
     unit = (unit + 1.0) * 127.5
+
+    # Convert back to images resize to (128, 128)
     unit = unit.numpy().astype(np.uint8)
     unit = cv2.cvtColor(unit, cv2.COLOR_RGB2GRAY)
     unit = cv2.resize(unit, (128, 128))
-
     return unit
 
 
 def unit_postprocessing(unit):
-    # Mean all 32 channels
-    unit = torch.mean(unit[0], dim=0)
-    max_v = torch.max(unit)
-    min_v = torch.min(unit)
+    unit = unit[0]
+
+    # Normalized the images for each channels
+    max_v = torch.amax(unit, dim=(1, 2), keepdim=True)
+    min_v = torch.amin(unit, dim=(1, 2), keepdim=True)
     unit = (unit - min_v) / (max_v - min_v)
-    unit = cv2.resize(unit.numpy(), (128, 128))
+
+    # Sum up all the channels and take the average
+    unit = torch.mean(unit, dim=0).numpy()
+
+    # Resize to (128, 128)
+    unit = cv2.resize(unit, (128, 128))
     return unit
 
 
