@@ -6,7 +6,7 @@ The source code was trying to reproduce the paper - "Micro-expression Recognitio
 
 ### Requirements
 ```command
-$ pip install requirements.txt
+$ pip install -r requirements.txt
 ```
 
 ### MagNet
