@@ -1,0 +1,9 @@
+opencv_python_headless==4.2.0.34
+numpy==1.20.1
+pandas==1.1.1
+matplotlib==3.3.1
+dlib==19.22.0
+einops==0.3.0
+scikit_learn==0.24.2
+torch==1.9.0
+torchvision==0.10.0
