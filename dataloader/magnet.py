@@ -1,4 +1,4 @@
-"""Take from
+"""Taken from
 https://github.com/ZhengPeng7/motion_magnification_learning-based/blob/master/magnet.py
 """
 
