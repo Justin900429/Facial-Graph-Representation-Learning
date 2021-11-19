@@ -102,15 +102,15 @@ def LOSO_train(data: pd.DataFrame, sub_column: str, args,
                label_mapping: dict, device: torch.device):
     log_file = open("train.log", "w")
 
-    npz_file = np.load(args.npz_file)
-    adj_matrix = torch.FloatTensor(npz_file["adj_matrix"]).to(device)
-
     # Create different DataFrame for each subject
     train_list, test_list = LOSO_sequence_generate(data, sub_column)
     test_accuracy = 0.0
     test_f1_score = 0.0
 
     for idx in range(len(train_list)):
+        npz_file = np.load(f"{args.npz_file}/{idx}.npz")
+        adj_matrix = torch.FloatTensor(npz_file["adj_matrix"]).to(device)
+
         print(f"=================LOSO {idx + 1}=====================")
         train_csv = train_list[idx]
         test_csv = test_list[idx]
@@ -177,6 +177,10 @@ if __name__ == "__main__":
                         type=str,
                         required=True,
                         help="Root for the training images")
+    parser.add_argument("--npz_file",
+                        type=str,
+                        required=True,
+                        help="Files' root for npz")
     parser.add_argument("--npz_file",
                         type=str,
                         required=True,

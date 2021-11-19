@@ -54,7 +54,7 @@ optional arguments:
   --csv_path CSV_PATH   Path for the csv file for training data
   --image_root IMAGE_ROOT
                         Root for the training images
-  --npz_file NPZ_FILE   Place for the npz file
+  --npz_file NPZ_FILE   Files root for npz
   --catego CATEGO       SAMM or CASME dataset
   --num_classes NUM_CLASSES
                         Classes to be trained
