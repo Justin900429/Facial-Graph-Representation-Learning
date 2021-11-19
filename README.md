@@ -6,7 +6,15 @@ The source code was trying to reproduce the paper - "Micro-expression Recognitio
 
 ### Requirements
 ```command
+# Install requirement
 $ pip install -r requirements.txt
+
+# Download landmark weight
+$ mkdir -p dataloader/weight
+$ wget https://github.com/davisking/dlib-models/raw/master/mmod_human_face_detector.dat.bz2 -P dataloader/weight
+$ bzip2 -d dataloader/weight/mmod_human_face_detector.dat.bz2
+$ wget https://github.com/davisking/dlib-models/raw/master/shape_predictor_68_face_landmarks.dat.bz2 -P dataloader/weight
+$ bzip2 -d dataloader/weight/shape_predictor_68_face_landmarks.dat.bz2
 ```
 
 ### MagNet
