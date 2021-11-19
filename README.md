@@ -9,7 +9,7 @@ The source code was trying to reproduce the paper - "Micro-expression Recognitio
 # Install requirement
 $ pip install -r requirements.txt
 
-# Download landmark weight
+# Download landmarks weight for DLIB
 $ mkdir -p dataloader/weight
 $ wget https://github.com/davisking/dlib-models/raw/master/mmod_human_face_detector.dat.bz2 -P dataloader/weight
 $ bzip2 -d dataloader/weight/mmod_human_face_detector.dat.bz2
