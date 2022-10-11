@@ -180,10 +180,6 @@ if __name__ == "__main__":
     parser.add_argument("--npz_file",
                         type=str,
                         required=True,
-                        help="Files' root for npz")
-    parser.add_argument("--npz_file",
-                        type=str,
-                        required=True,
                         help="Place for the npz file")
     parser.add_argument("--catego",
                         type=str,
